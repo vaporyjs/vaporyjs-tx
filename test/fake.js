@@ -1,5 +1,5 @@
 const tape = require('tape')
-const utils = require('ethereumjs-util')
+const utils = require('vaporyjs-util')
 const FakeTransaction = require('../fake.js')
 tape('[FakeTransaction]: Basic functions', function (t) {
   t.test('should not produce hash collsions for different senders', function (st) {

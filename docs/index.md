@@ -1,6 +1,6 @@
 # Transaction
 
-[index.js:46-293](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L46-L293 "Source code on GitHub")
+[index.js:46-293](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L46-L293 "Source code on GitHub")
 
 Creates a new transaction object.
 
@@ -16,7 +16,7 @@ Creates a new transaction object.
     -   `data.v` **Buffer** EC recovery ID
     -   `data.r` **Buffer** EC signature parameter
     -   `data.s` **Buffer** EC signature parameter
-    -   `data.value` **Buffer** the amount of ether sent
+    -   `data.value` **Buffer** the amount of vapor sent
 
 **Properties**
 
@@ -41,7 +41,7 @@ var tx = new Transaction(rawTx);
 
 ## getBaseFee
 
-[index.js:254-260](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L254-L260 "Source code on GitHub")
+[index.js:254-260](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L254-L260 "Source code on GitHub")
 
 the minimum amount of gas the tx must have (DataFee + TxFee + Creation Fee)
 
@@ -49,7 +49,7 @@ Returns **BN**
 
 ## getChainId
 
-[index.js:172-174](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L172-L174 "Source code on GitHub")
+[index.js:172-174](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L172-L174 "Source code on GitHub")
 
 returns the public key of the sender
 
@@ -57,7 +57,7 @@ Returns **Buffer**
 
 ## getDataFee
 
-[index.js:241-248](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L241-L248 "Source code on GitHub")
+[index.js:241-248](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L241-L248 "Source code on GitHub")
 
 The amount of gas paid for the data in this tx
 
@@ -65,7 +65,7 @@ Returns **BN**
 
 ## getSenderAddress
 
-[index.js:180-187](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L180-L187 "Source code on GitHub")
+[index.js:180-187](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L180-L187 "Source code on GitHub")
 
 returns the sender's address
 
@@ -73,7 +73,7 @@ Returns **Buffer**
 
 ## getSenderPublicKey
 
-[index.js:193-198](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L193-L198 "Source code on GitHub")
+[index.js:193-198](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L193-L198 "Source code on GitHub")
 
 returns the public key of the sender
 
@@ -81,7 +81,7 @@ Returns **Buffer**
 
 ## getUpfrontCost
 
-[index.js:266-270](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L266-L270 "Source code on GitHub")
+[index.js:266-270](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L266-L270 "Source code on GitHub")
 
 the up front amount that an account must have for this transaction to be valid
 
@@ -89,7 +89,7 @@ Returns **BN**
 
 ## hash
 
-[index.js:140-166](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L140-L166 "Source code on GitHub")
+[index.js:140-166](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L140-L166 "Source code on GitHub")
 
 Computes a sha3-256 hash of the serialized tx
 
@@ -101,7 +101,7 @@ Returns **Buffer**
 
 ## sign
 
-[index.js:228-235](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L228-L235 "Source code on GitHub")
+[index.js:228-235](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L228-L235 "Source code on GitHub")
 
 sign a transaction with a given a private key
 
@@ -111,7 +111,7 @@ sign a transaction with a given a private key
 
 ## toCreationAddress
 
-[index.js:131-133](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L131-L133 "Source code on GitHub")
+[index.js:131-133](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L131-L133 "Source code on GitHub")
 
 If the tx's `to` is to the creation address
 
@@ -119,7 +119,7 @@ Returns **Boolean**
 
 ## validate
 
-[index.js:277-292](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L277-L292 "Source code on GitHub")
+[index.js:277-292](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L277-L292 "Source code on GitHub")
 
 validates the signature and checks to see if it has enough gas
 
@@ -131,7 +131,7 @@ Returns **Boolean or String**
 
 ## verifySignature
 
-[index.js:204-222](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L204-L222 "Source code on GitHub")
+[index.js:204-222](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L204-L222 "Source code on GitHub")
 
 Determines if the signature is valid
 
@@ -139,7 +139,7 @@ Returns **Boolean**
 
 ## from
 
-[index.js:111-115](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L111-L115 "Source code on GitHub")
+[index.js:111-115](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L111-L115 "Source code on GitHub")
 
 **Properties**
 
@@ -147,7 +147,7 @@ Returns **Boolean**
 
 ## serialize
 
-[index.js:104-104](https://github.com/ethereumjs/ethereumjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L104-L104 "Source code on GitHub")
+[index.js:104-104](https://github.com/vaporyjs/vaporyjs-tx/blob/07b7b1a75168db1778d00fffd98324e8188036a1/index.js#L104-L104 "Source code on GitHub")
 
 Returns the rlp encoding of the transaction
 

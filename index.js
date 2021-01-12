@@ -1,7 +1,7 @@
 'use strict'
-const ethUtil = require('ethereumjs-util')
-const fees = require('ethereum-common/params.json')
-const BN = ethUtil.BN
+const vapUtil = require('vaporyjs-util')
+const fees = require('vapory-common/params.json')
+const BN = vapUtil.BN
 
 // secp256k1n/2
 const N_DIV_2 = new BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a0', 16)
@@ -35,7 +35,7 @@ const N_DIV_2 = new BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46
  * @param {Buffer} data.gasLimit transaction gas limit
  * @param {Buffer} data.gasPrice transaction gas price
  * @param {Buffer} data.to to the to address
- * @param {Buffer} data.value the amount of ether sent
+ * @param {Buffer} data.value the amount of vapor sent
  * @param {Buffer} data.data this will contain the data of the message or the init of a contract
  * @param {Buffer} data.v EC recovery ID
  * @param {Buffer} data.r EC signature parameter
@@ -104,7 +104,7 @@ class Transaction {
      * @name serialize
      */
     // attached serialize
-    ethUtil.defineProperties(this, fields, data)
+    vapUtil.defineProperties(this, fields, data)
 
     /**
      * @property {Buffer} from (read only) sender address of this transaction, mathematically derived from other parameters.
@@ -118,7 +118,7 @@ class Transaction {
     })
 
     // calculate chainId from signature
-    let sigV = ethUtil.bufferToInt(this.v)
+    let sigV = vapUtil.bufferToInt(this.v)
     let chainId = Math.floor((sigV - 35) / 2)
     if (chainId < 0) chainId = 0
 
@@ -165,7 +165,7 @@ class Transaction {
     }
 
     // create hash
-    return ethUtil.rlphash(items)
+    return vapUtil.rlphash(items)
   }
 
   /**
@@ -185,7 +185,7 @@ class Transaction {
       return this._from
     }
     const pubkey = this.getSenderPublicKey()
-    this._from = ethUtil.publicToAddress(pubkey)
+    this._from = vapUtil.publicToAddress(pubkey)
     return this._from
   }
 
@@ -212,11 +212,11 @@ class Transaction {
     }
 
     try {
-      let v = ethUtil.bufferToInt(this.v)
+      let v = vapUtil.bufferToInt(this.v)
       if (this._chainId > 0) {
         v -= this._chainId * 2 + 8
       }
-      this._senderPubKey = ethUtil.ecrecover(msgHash, v, this.r, this.s)
+      this._senderPubKey = vapUtil.ecrecover(msgHash, v, this.r, this.s)
     } catch (e) {
       return false
     }
@@ -230,7 +230,7 @@ class Transaction {
    */
   sign (privateKey) {
     const msgHash = this.hash(false)
-    const sig = ethUtil.ecsign(msgHash, privateKey)
+    const sig = vapUtil.ecsign(msgHash, privateKey)
     if (this._chainId > 0) {
       sig.v += this._chainId * 2 + 8
     }
