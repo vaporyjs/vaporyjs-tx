@@ -22,7 +22,7 @@
   "license": "MPL-2.0",
   "dependencies": {
     "vapory-common": "0.0.16",
-    "vaporyjs-util": "^4.0.0"
+    "vaporyjs-util": "4.0.1"
   },
   "devDependencies": {
     "async": "^1.4.2",
