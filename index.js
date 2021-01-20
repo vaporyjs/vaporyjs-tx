@@ -1,13 +1,13 @@
-const ethUtil = require('ethereumjs-util')
-const fees = require('ethereum-common')
-const BN = ethUtil.BN
+const vapUtil = require('vaporyjs-util')
+const fees = require('vapory-common')
+const BN = vapUtil.BN
 
 // secp256k1n/2
 const N_DIV_2 = new BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a0', 16)
 
 // give browser access to Buffers
 global.Buffer = Buffer
-global.ethUtil = ethUtil
+global.vapUtil = vapUtil
 
 /**
  * Creates a new transaction object
@@ -31,7 +31,7 @@ global.ethUtil = ethUtil
  * @prop {Buffer} raw The raw rlp decoded transaction
  * @prop {Buffer} nonce
  * @prop {Buffer} to the to address
- * @prop {Buffer} value the amount of ether sent
+ * @prop {Buffer} value the amount of vapor sent
  * @prop {Buffer} data this will contain the data of the message or the init of a contract
  * @prop {Buffer} v EC signature parameter
  * @prop {Buffer} r EC signature parameter
@@ -93,7 +93,7 @@ var Transaction = module.exports = function (data) {
    * @return {Buffer}
    */
   // attached serialize
-  ethUtil.defineProperties(this, fields, data)
+  vapUtil.defineProperties(this, fields, data)
   this._homestead = true
 }
 
@@ -122,7 +122,7 @@ Transaction.prototype.hash = function (signature) {
   toHash = signature ? this.raw : this.raw.slice(0, 6)
 
   // create hash
-  return ethUtil.rlphash(toHash)
+  return vapUtil.rlphash(toHash)
 }
 
 /**
@@ -135,7 +135,7 @@ Transaction.prototype.getSenderAddress = function () {
     return this._from
   }
   var pubkey = this.getSenderPublicKey()
-  this._from = ethUtil.publicToAddress(pubkey)
+  this._from = vapUtil.publicToAddress(pubkey)
   return this._from
 }
 
@@ -166,7 +166,7 @@ Transaction.prototype.verifySignature = function () {
   }
 
   try {
-    this._senderPubKey = ethUtil.ecrecover(msgHash, this.v, this.r, this.s)
+    this._senderPubKey = vapUtil.ecrecover(msgHash, this.v, this.r, this.s)
   } catch (e) {
     return false
   }
@@ -181,7 +181,7 @@ Transaction.prototype.verifySignature = function () {
  */
 Transaction.prototype.sign = function (privateKey) {
   var msgHash = this.hash(false)
-  var sig = ethUtil.ecsign(msgHash, privateKey)
+  var sig = vapUtil.ecsign(msgHash, privateKey)
   Object.assign(this, sig)
 }
 
