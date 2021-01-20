@@ -1,9 +1,9 @@
 const Tx = require('../index.js')
 const tape = require('tape')
-const ethUtil = require('ethereumjs-util')
+const vapUtil = require('vaporyjs-util')
 const argv = require('minimist')(process.argv.slice(2))
-const testing = require('ethereumjs-testing')
-const common = require('ethereum-common')
+const testing = require('vaporyjs-testing')
+const common = require('vapory-common')
 
 var txTests = testing.getTests('transaction', argv)
 
@@ -39,12 +39,12 @@ testing.runTests(function (testData, sst, cb) {
   if (tx.validate()) {
     try {
       sst.equal(tx.data.toString('hex'), addPad(tTx.data.slice(2)), 'data')
-      sst.equal(ethUtil.bufferToInt(tx.gasLimit), Number(tTx.gasLimit), 'gasLimit')
-      sst.equal(ethUtil.bufferToInt(tx.gasPrice), Number(tTx.gasPrice), 'gasPrice')
-      sst.equal(ethUtil.bufferToInt(tx.nonce), Number(tTx.nonce), 'nonce')
-      sst.equal(ethUtil.setLength(tx.r, 32).toString('hex'), ethUtil.setLength(tTx.r, 32).toString('hex'), 'r')
+      sst.equal(vapUtil.bufferToInt(tx.gasLimit), Number(tTx.gasLimit), 'gasLimit')
+      sst.equal(vapUtil.bufferToInt(tx.gasPrice), Number(tTx.gasPrice), 'gasPrice')
+      sst.equal(vapUtil.bufferToInt(tx.nonce), Number(tTx.nonce), 'nonce')
+      sst.equal(vapUtil.setLength(tx.r, 32).toString('hex'), vapUtil.setLength(tTx.r, 32).toString('hex'), 'r')
       sst.equal(tx.s.toString('hex'), addPad(tTx.s.slice(2)), 's')
-      sst.equal(ethUtil.bufferToInt(tx.v), Number(tTx.v), 'v')
+      sst.equal(vapUtil.bufferToInt(tx.v), Number(tTx.v), 'v')
       if (tTx.to[1] === 'x') {
         tTx.to = tTx.to.slice(2)
       }

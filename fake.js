@@ -1,6 +1,6 @@
 const inherits = require('util').inherits
 const Transaction = require('./index.js')
-const ethUtil = require('ethereumjs-util')
+const vapUtil = require('vaporyjs-util')
 
 module.exports = FakeTransaction
 
@@ -28,7 +28,7 @@ inherits(FakeTransaction, Transaction)
  * @prop {Buffer} raw The raw rlp decoded transaction
  * @prop {Buffer} nonce
  * @prop {Buffer} to the to address
- * @prop {Buffer} value the amount of ether sent
+ * @prop {Buffer} value the amount of vapor sent
  * @prop {Buffer} data this will contain the data of the message or the init of a contract
  * @prop {Buffer} v EC signature parameter
  * @prop {Buffer} r EC signature parameter
@@ -47,7 +47,7 @@ function FakeTransaction (data) {
     configurable: true,
     get: this.getSenderAddress.bind(self),
     set: function (val) {
-      self._from = ethUtil.toBuffer(val)
+      self._from = vapUtil.toBuffer(val)
     }
   })
 

@@ -1,9 +1,9 @@
 // Browser environment
 if (typeof window !== 'undefined') {
-  EthTx = (typeof window.EthTx !== 'undefined') ? window.EthTx : require('ethereumjs-tx')
+  VapTx = (typeof window.VapTx !== 'undefined') ? window.VapTx : require('vaporyjs-tx')
 }
 
 // Node environment
 if (typeof global !== 'undefined') {
-  EthTx = (typeof global.EthTx !== 'undefined') ? global.EthTx : require('ethereumjs-tx')
+  VapTx = (typeof global.VapTx !== 'undefined') ? global.VapTx : require('vaporyjs-tx')
 }
