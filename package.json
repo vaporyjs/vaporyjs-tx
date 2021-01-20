@@ -34,7 +34,7 @@
     "contributor": "^0.1.25",
     "coveralls": "^2.11.4",
     "documentation": "^3.0.4",
-    "vaporyjs-testing": "0.0.1",
+    "vaporyjs-testing": "^1.0.4",
     "istanbul": "^0.4.1",
     "karma": "^1.1.1",
     "karma-browserify": "^5.1.0",
