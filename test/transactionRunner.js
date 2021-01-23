@@ -1,16 +1,16 @@
 const Tx = require('../index.js')
 const tape = require('tape')
-const ethUtil = require('ethereumjs-util')
+const vapUtil = require('vaporyjs-util')
 const argv = require('minimist')(process.argv.slice(2))
-const testing = require('ethereumjs-testing')
-const common = require('ethereum-common')
+const testing = require('vaporyjs-testing')
+const common = require('vapory-common')
 
 var txTests = testing.getTests('transaction', argv)
 
-const bufferToHex = ethUtil.bufferToHex
-const addHexPrefix = ethUtil.addHexPrefix
-const stripHexPrefix = ethUtil.stripHexPrefix
-const setLength = ethUtil.setLength
+const bufferToHex = vapUtil.bufferToHex
+const addHexPrefix = vapUtil.addHexPrefix
+const stripHexPrefix = vapUtil.stripHexPrefix
+const setLength = vapUtil.setLength
 
 function addPad (v) {
   if (v.length % 2 === 1) {

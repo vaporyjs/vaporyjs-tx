@@ -1,7 +1,7 @@
 'use strict'
-const ethUtil = require('ethereumjs-util')
-const fees = require('ethereum-common/params')
-const BN = ethUtil.BN
+const vapUtil = require('vaporyjs-util')
+const fees = require('vapory-common/params')
+const BN = vapUtil.BN
 
 // secp256k1n/2
 const N_DIV_2 = new BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a0', 16)
@@ -27,7 +27,7 @@ const N_DIV_2 = new BN('7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46
  * @prop {Buffer} raw The raw rlp decoded transaction
  * @prop {Buffer} nonce
  * @prop {Buffer} to the to address
- * @prop {Buffer} value the amount of ether sent
+ * @prop {Buffer} value the amount of vapr sent
  * @prop {Buffer} data this will contain the data of the message or the init of a contract
  * @prop {Buffer} v EC signature parameter
  * @prop {Buffer} r EC signature parameter
@@ -89,7 +89,7 @@ module.exports = class Transaction {
      * @return {Buffer}
      */
     // attached serialize
-    ethUtil.defineProperties(this, fields, data)
+    vapUtil.defineProperties(this, fields, data)
 
     /**
      * @prop {Buffer} from (read only) sender address of this transaction, mathematically derived from other parameters.
@@ -133,7 +133,7 @@ module.exports = class Transaction {
 
     // create hash
     this.raw = rawCopy.slice(0)
-    return ethUtil.rlphash(toHash)
+    return vapUtil.rlphash(toHash)
   }
 
   /**
@@ -145,7 +145,7 @@ module.exports = class Transaction {
       return this._from
     }
     const pubkey = this.getSenderPublicKey()
-    this._from = ethUtil.publicToAddress(pubkey)
+    this._from = vapUtil.publicToAddress(pubkey)
     return this._from
   }
 
@@ -172,12 +172,12 @@ module.exports = class Transaction {
     }
 
     try {
-      let v = ethUtil.bufferToInt(this.v)
+      let v = vapUtil.bufferToInt(this.v)
       if (this._chainId) {
         v -= this._chainId * 2
         v -= 8
       }
-      this._senderPubKey = ethUtil.ecrecover(msgHash, v, this.r, this.s)
+      this._senderPubKey = vapUtil.ecrecover(msgHash, v, this.r, this.s)
     } catch (e) {
       return false
     }
@@ -191,7 +191,7 @@ module.exports = class Transaction {
    */
   sign (privateKey) {
     const msgHash = this.hash(false)
-    const sig = ethUtil.ecsign(msgHash, privateKey)
+    const sig = vapUtil.ecsign(msgHash, privateKey)
     sig.v += this._chainId ? this._chainId * 2 + 8 : 0
     Object.assign(this, sig)
   }

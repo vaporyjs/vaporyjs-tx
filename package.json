@@ -1,7 +1,8 @@
 {
-  "name": "ethereumjs-tx",
+  "name": "vaporyjs-tx",
+  "namespace": "vaporyjs",
   "version": "1.2.0",
-  "description": "An simple module for creating, manipulating and signing ethereum transactions",
+  "description": "An simple module for creating, manipulating and signing vapory transactions",
   "main": "index.js",
   "scripts": {
     "coverage": "istanbul cover ./test/index.js",
@@ -13,14 +14,14 @@
     "build:docs": "documentation --github  -f md ./index.js > ./docs/index.md && contributor"
   },
   "keywords": [
-    "ethereum",
+    "vapory",
     "transactions"
   ],
   "author": "mjbecze <mb@ethdev.com>",
   "license": "MPL-2.0",
   "dependencies": {
-    "ethereum-common": "^0.0.17",
-    "ethereumjs-util": "^5.0.0"
+    "vapory-common": "0.0.17",
+    "vaporyjs-util": "5.1.5"
   },
   "devDependencies": {
     "async": "^2.0.0",
@@ -28,7 +29,7 @@
     "contributor": "^0.1.25",
     "coveralls": "^2.11.4",
     "documentation": "^3.0.4",
-    "ethereumjs-testing": "0.0.1",
+    "vaporyjs-testing": "0.0.1",
     "istanbul": "^0.4.1",
     "karma": "^1.1.1",
     "karma-browserify": "^5.1.0",
@@ -42,12 +43,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ethereumjs/ethereumjs-tx.git"
+    "url": "https://github.com/vaporyjs/vaporyjs-tx.git"
   },
   "bugs": {
-    "url": "https://github.com/ethereumjs/ethereumjs-tx/issues"
+    "url": "https://github.com/vaporyjs/vaporyjs-tx/issues"
   },
-  "homepage": "https://github.com/ethereumjs/ethereumjs-tx",
+  "homepage": "https://github.com/vaporyjs/vaporyjs-tx",
   "standard": {
     "ignore": [
       "dist/**",

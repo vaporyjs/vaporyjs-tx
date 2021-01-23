@@ -1,20 +1,20 @@
 # SYNOPSIS 
-[![NPM Package](https://img.shields.io/npm/v/ethereumjs-tx.svg?style=flat-square)](https://www.npmjs.org/package/ethereumjs-tx)
-[![Build Status](https://img.shields.io/travis/ethereumjs/ethereumjs-tx.svg?branch=master&style=flat-square)](https://travis-ci.org/ethereumjs/ethereumjs-tx)
-[![Coverage Status](https://img.shields.io/coveralls/ethereumjs/ethereumjs-tx.svg?style=flat-square)](https://coveralls.io/r/ethereumjs/ethereumjs-tx)
-[![Gitter](https://img.shields.io/gitter/room/ethereum/ethereumjs-lib.svg?style=flat-square)](https://gitter.im/ethereum/ethereumjs-lib) or #ethereumjs on freenode  
+[![NPM Package](https://img.shields.io/npm/v/vaporyjs-tx.svg?style=flat-square)](https://www.npmjs.org/package/vaporyjs-tx)
+[![Build Status](https://img.shields.io/travis/vaporyjs/vaporyjs-tx.svg?branch=master&style=flat-square)](https://travis-ci.org/vaporyjs/vaporyjs-tx)
+[![Coverage Status](https://img.shields.io/coveralls/vaporyjs/vaporyjs-tx.svg?style=flat-square)](https://coveralls.io/r/vaporyjs/vaporyjs-tx)
+[![Gitter](https://img.shields.io/gitter/room/vapory/vaporyjs-lib.svg?style=flat-square)](https://gitter.im/vapory/vaporyjs-lib) or #vaporyjs on freenode  
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)  
 
 # INSTALL
-`npm install ethereumjs-tx`
+`npm install vaporyjs-tx`
 
 # USAGE
 
-  - [example](https://github.com/ethereumjs/ethereumjs-tx/blob/master/examples/transactions.js)
+  - [example](https://github.com/vaporyjs/vaporyjs-tx/blob/master/examples/transactions.js)
 
 ```javascript
-var Tx = require('ethereumjs-tx')
+var Tx = require('vaporyjs-tx')
 var privateKey = new Buffer('e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109', 'hex')
 
 var rawTx = {
@@ -42,7 +42,7 @@ var serializedEip155Tx = eip155tx.serialize()
 
 
 # BROWSER  
-For a browser build please see https://github.com/ethereumjs/browser-builds.
+For a browser build please see https://github.com/vaporyjs/browser-builds.
 
 # API
 [./docs/](./docs/index.md)
