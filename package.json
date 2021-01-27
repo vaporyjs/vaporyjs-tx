@@ -20,7 +20,7 @@
   "author": "mjbecze <mb@ethdev.com>",
   "license": "MPL-2.0",
   "dependencies": {
-    "vapory-common": "0.0.17",
+    "vapory-common": "0.0.17-a",
     "vaporyjs-util": "4.5.0"
   },
   "devDependencies": {
